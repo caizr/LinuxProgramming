@@ -17,7 +17,9 @@ int main(){
     cout<<"nr: "<<nr<<endl;
     /* 上面的代码写的考虑不全 */
     /* 自己写的 */
-    int fd2,ret=2,len=8;
+    int fd2,ret=2;
+    size_t len=8;
+    //最好加一个 if(len>SSIZE_MAZ) len=SSIZE_MAX; 其中SSIZE_MAX=LONG_MAX
     const char * s2="assignment hello world c++ 123456 this is txt";
     int s2_len=strlen(s2);
     fd2=creat("3.txt",0644);
@@ -30,5 +32,8 @@ int main(){
         } 
     }
     /* 以上程序写入文件的时候，一直是assignment，不会写入后续的hello... */
+    /* 写操作和读不一样，不存在部分写，没有EOF，所以直接write中的len参数设置
+    大一些，把整个字符串写进去就行了 */
+
     return 0;
 }
