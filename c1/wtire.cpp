@@ -7,8 +7,8 @@ using namespace std;
 int main(){
     int fd,nr;
     fd=creat("2.txt",0644);
-    string s="hello";
-    nr=write(fd,&s,8);
+    char []s="hello";
+    nr=write(fd,s,8);
     cout<<"nr: "<<nr<<endl;
     return 0;
 }
