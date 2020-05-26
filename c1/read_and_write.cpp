@@ -26,5 +26,13 @@ int main(){
         }
     }
     
+    /*注意，每次用完fd之后需要关闭文件 */
+    if(close(fd1)==-1){
+        perror("error");
+    }
+    if(close(fd2==-1){
+        perror("error");
+    }
+    //close不意味着数据写入到磁盘，如果需要写入，需要用SYNC
     return 0;
 }
